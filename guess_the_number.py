@@ -62,7 +62,7 @@ def give_chance(difficulty_level, ans, range_option, player):
     return 0
 
 
-def start_game(difficulty_level, range_option, players, score_list, runner_up_possibility=False):
+def play_game(difficulty_level, range_option, players, score_list, runner_up_possibility=False):
     lower_limit, upper_limit = range_limit[range_option]
     continue_game = 'y'
 
@@ -101,7 +101,7 @@ def single_player_mode(difficulty_level, range_option):
         f"{player}": 0,
         "Robo": 0,
     }
-    start_game(difficulty_level, range_option, [player, "Robo"], score_list)
+    play_game(difficulty_level, range_option, [player, "Robo"], score_list)
 
 
 def multi_player_mode(difficulty_level, range_option):
@@ -114,10 +114,10 @@ def multi_player_mode(difficulty_level, range_option):
         players.append(input(f"Player {index+1}: _"))
         score_list = {f"{players[-1]}": 0}
 
-    start_game(difficulty_level, range_option, players, score_list, n > 4)
+    play_game(difficulty_level, range_option, players, score_list, n > 4)
 
 
-def play_game():
+def start_game():
     print(starter_script)
     input()
 
@@ -136,4 +136,4 @@ def play_game():
 
 
 if __name__ == "__main__":
-    play_game()
+    start_game()
